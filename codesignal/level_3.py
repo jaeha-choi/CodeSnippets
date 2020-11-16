@@ -48,3 +48,24 @@ def sortByHeight(a):
             a[j] = b[i]
             i += 1
     return a
+
+
+def reverseInParentheses(inputString):
+    li = []
+    parenO = []
+
+    i = 0
+    ran = len(inputString)
+    while i < ran:
+        ch = inputString[i]
+        if ch == "(":
+            parenO.append(i)
+        elif ch == ")":
+            start = parenO.pop()
+            # "." isnt necessary if you update parentheses' index.
+            inputString = inputString[:start] + "." + inputString[i - 1:start:-1] + "." + inputString[i + 1:]
+            print(inputString)
+            i -= 1
+        i += 1
+    inputString = inputString.replace(".", "")
+    return inputString
