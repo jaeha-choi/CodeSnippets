@@ -67,3 +67,15 @@ def almostIncreasingSequence(sequence):
 
         i += 1
     return True
+
+def matrixElementsSum(matrix):
+    topLevel = [len(matrix)] * len(matrix[0])
+    total = 0
+    for j, elem in enumerate(matrix):
+        for i, e in enumerate(elem):
+            if e == 0 and topLevel[i] > e:
+                topLevel[i] = j
+            elif e != 0 and j < topLevel[i]:
+                total += e
+    # print(topLevel,"\n")
+    return total
