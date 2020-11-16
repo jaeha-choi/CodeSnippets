@@ -30,3 +30,21 @@ def commonCharacterCount(s1, s2):
             cnt += min(d2[key], value)
             # print(key, d2[key], value , "\n")
     return cnt
+
+
+def isLucky(n):
+    return sum([int(s) for s in str(n)[:len(str(n)) // 2]]) == sum([int(s) for s in str(n)[len(str(n)) // 2:]])
+
+
+def sortByHeight(a):
+    b = []
+    for elem in a:
+        if elem != -1:
+            b.append(elem)
+    b.sort()
+    i = 0
+    for j, elem in enumerate(a):
+        if elem != -1:
+            a[j] = b[i]
+            i += 1
+    return a
