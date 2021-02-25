@@ -35,3 +35,32 @@ def absoluteValuesSumMinimization(a):
 
 
 # 33
+# Very similar to Hamiltonian path questions
+def visit(curr, d, done):
+    mx = len(done)
+    for elem in d[curr]:
+        if elem not in done:
+            done.append(elem)
+            curr_mx = visit(elem, d, done)
+            done.remove(elem)
+            if mx < curr_mx:
+                mx = curr_mx
+    return mx
+
+
+def stringsRearrangement(inputArray):
+    d = {}
+    for idx in range(len(inputArray)):
+        d[idx] = []
+        for jdx in range(len(inputArray)):
+            if idx != jdx:
+                count = 0
+                for i, j in zip(inputArray[idx], inputArray[jdx]):
+                    if i != j:
+                        count += 1
+                if count == 1:
+                    d[idx].append(jdx)
+    lengths = [len(val) for val in d.values()]
+    start_val = list(d.keys()).index(lengths.index(min(lengths)))
+
+    return visit(start_val, d, [start_val]) == len(inputArray)
