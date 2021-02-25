@@ -1,3 +1,4 @@
+# 4
 def adjacentElementsProduct(inputArray):
     mx = inputArray[0] * inputArray[1]
     for i in range(len(inputArray) - 1):
@@ -6,6 +7,7 @@ def adjacentElementsProduct(inputArray):
     return mx
 
 
+# 5
 def shapeArea(n):
     area = 1
     for i in range(1, n):
@@ -13,6 +15,7 @@ def shapeArea(n):
     return area
 
 
+# 6
 def makeArrayConsecutive2(statues):
     statues.sort()
     prev = min(statues)
@@ -23,7 +26,7 @@ def makeArrayConsecutive2(statues):
         prev = elem
     return acc
 
-
+# 7
 def almostIncreasingSequence(sequence):
     acc = False
     i = 0
@@ -68,6 +71,8 @@ def almostIncreasingSequence(sequence):
         i += 1
     return True
 
+
+# 8
 def matrixElementsSum(matrix):
     topLevel = [len(matrix)] * len(matrix[0])
     total = 0

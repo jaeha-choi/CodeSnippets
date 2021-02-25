@@ -1,3 +1,4 @@
+# 9
 def allLongestStrings(inputArray):
     li = []
 
@@ -13,6 +14,7 @@ def allLongestStrings(inputArray):
     return ret
 
 
+# 10
 def commonCharacterCount(s1, s2):
     d1 = {}
     d2 = {}
@@ -32,10 +34,12 @@ def commonCharacterCount(s1, s2):
     return cnt
 
 
+# 11
 def isLucky(n):
     return sum([int(s) for s in str(n)[:len(str(n)) // 2]]) == sum([int(s) for s in str(n)[len(str(n)) // 2:]])
 
 
+# 12
 def sortByHeight(a):
     b = []
     for elem in a:
@@ -50,6 +54,7 @@ def sortByHeight(a):
     return a
 
 
+# 13
 def reverseInParentheses(inputString):
     li = []
     parenO = []
