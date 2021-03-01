@@ -22,3 +22,19 @@ def differentSymbolsNaive(s):
         se.add(elem)
     return len(se)
 
+
+# 37
+def arrayMaxConsecutiveSum(inputArray, k):
+    mx = inputArray[0]
+    curr = sum(inputArray[:k])
+    prev_elem = inputArray[0]
+    for i in range(1, len(inputArray)-k+1):
+        # print(i, inputArray[i], k)
+        if mx < curr:
+            mx = curr
+        curr -= prev_elem
+        prev_elem = inputArray[i]
+        curr += inputArray[i+k-1]
+    if mx < curr:
+        mx = curr
+    return mx
