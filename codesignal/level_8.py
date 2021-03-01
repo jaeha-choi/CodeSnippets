@@ -16,3 +16,9 @@ def firstDigit(inputString):
 
 
 # 36
+def differentSymbolsNaive(s):
+    se = set()
+    for elem in s:
+        se.add(elem)
+    return len(se)
+
