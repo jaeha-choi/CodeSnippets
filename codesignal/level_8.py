@@ -7,3 +7,12 @@ def extractEachKth(inputArray, k):
             acc += 1
     return inputArray
 
+
+# 35
+def firstDigit(inputString):
+    for s in inputString:
+        if s.isdigit():
+            return s
+
+
+# 36
