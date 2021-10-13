@@ -1,4 +1,8 @@
+from typing import List
+
+
 class Solution:
+    # must optimize to o(n)
     def maximumGap(self, nums: List[int]) -> int:
         if len(nums) < 2:
             return 0
