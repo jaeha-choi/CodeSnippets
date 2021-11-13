@@ -11,17 +11,13 @@ class Solution:
         pv = p.val
         qv = q.val
 
-        temp = None
-
         def solve(node):
-            nonlocal temp
-            temp = node
             if node.val == pv or node.val == qv:
-                return
+                return node
             if node.val <= pv and node.val <= qv:
-                solve(node.right)
+                return solve(node.right)
             if node.val >= pv and node.val >= qv:
-                solve(node.left)
+                return solve(node.left)
+            return node
 
-        solve(root)
-        return temp
+        return solve(root)
