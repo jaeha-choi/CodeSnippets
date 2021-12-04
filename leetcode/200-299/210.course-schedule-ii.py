@@ -1,38 +1,29 @@
-from collections import deque
-from typing import List
+import collections
 
 
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        q = deque()
-        graph = {}
-        incoming = [0] * numCourses
-        res = deque()
-        # res = []
+    def findOrder(self, numCourses: int, prerequisites):
+        q = collections.deque()
+        incoming = [0 for _ in range(numCourses)]
+        graph = collections.defaultdict(list)
+        res = []
+
+        for target, prereq in prerequisites:
+            graph[prereq].append(target)
+            incoming[target] += 1
 
         for i in range(numCourses):
-            graph.setdefault(i, [])
-
-        for src, dst in prerequisites:
-            graph[src].append(dst)
-            incoming[dst] += 1
-
-        for i in range(len(incoming)):
             if incoming[i] == 0:
                 q.append(i)
-                incoming[i] = -1
 
-        for _ in range(len(graph)):
+        for _ in range(numCourses):
             if not q:
                 return []
-            src = q.popleft()
-            for dst in graph[src]:
+            curr = q.popleft()
+            for dst in graph[curr]:
                 incoming[dst] -= 1
                 if incoming[dst] == 0:
                     q.append(dst)
                     incoming[dst] = -1
-            # res.append(src)
-            res.appendleft(src)
-
-        # return res[::-1]
+            res.append(curr)
         return res
