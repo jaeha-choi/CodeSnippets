@@ -28,3 +28,21 @@ class Solution:
 
         solve(root, 0)
         return ret
+
+    # second attempt
+    # def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    #     if not root:
+    #         return []
+    #     q = deque([root])
+    #     res = []
+    #     while q:
+    #         tmp = []
+    #         for _ in range(len(q)):
+    #             node = q.popleft()
+    #             if node.left:
+    #                 q.append(node.left)
+    #             if node.right:
+    #                 q.append(node.right)
+    #             tmp.append(node.val)
+    #         res.append(tmp)
+    #     return res
